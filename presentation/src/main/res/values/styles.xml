@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="colors">
+        <attr name="background_color" format="color" />
+        <attr name="text_color" format="color" />
+        <attr name="primary_color" format="color" />
+        <attr name="card_color" format="color" />
+
+        <attr name="error_color" format="color" />
+        <attr name="success_color" format="color" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,14 @@
+plugins {
+    id 'kotlin'
+}
+
+dependencies {
+    //DI
+    implementation "io.insert-koin:koin-core:$koinVersion"
+
+    //Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutineVersion}"
+
+    //Test
+    //testImplementation "junit:junit:${junitVersion}"
+}
