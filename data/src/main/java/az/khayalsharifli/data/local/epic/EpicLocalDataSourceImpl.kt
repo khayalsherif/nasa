@@ -17,8 +17,6 @@ class EpicLocalDataSourceImpl(
     override suspend fun insertData(epics: List<EpicLocalDto>) {
         withContext(dispatcher) {
             epicDao.clearEpic()
-            //epicDao.clearCoordinates()
-            //epicDao.insertEpicCoordinates(epics.map { it.centroid_coordinates })
             epicDao.insertEpic(epics)
         }
     }

@@ -18,12 +18,4 @@ interface EpicDao {
     @Query("DELETE FROM epic")
     fun clearEpic()
 
-    /* @Insert(onConflict = OnConflictStrategy.REPLACE)
-     suspend fun insertEpicCoordinates(list: List<EpicLocalDto.CentroidCoordinates>)
-
-     @Query("SELECT * FROM coordinates")
-     fun observeEpicCoordinates(): Flow<List<EpicLocalDto.CentroidCoordinates>>
-
-     @Query("DELETE FROM coordinates")
-     fun clearCoordinates()*/
 }

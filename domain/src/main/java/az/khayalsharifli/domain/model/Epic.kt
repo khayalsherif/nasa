@@ -4,7 +4,7 @@ package az.khayalsharifli.domain.model
 
 data class Epic(
     val caption: String,
-    //val centroid_coordinates: CentroidCoordinates,
+    val centroid_coordinates: CentroidCoordinates,
     val date: String,
     val identifier: String,
     val image: String,
