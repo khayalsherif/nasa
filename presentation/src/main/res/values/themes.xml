@@ -17,5 +17,8 @@
             @android:color/transparent
         </item>
         <item name="android:windowSplashScreenAnimationDuration" tools:targetApi="s">0</item>
+
+        <!--Custom colors-->
+        <item name="text_color">@color/black</item>
     </style>
 </resources>

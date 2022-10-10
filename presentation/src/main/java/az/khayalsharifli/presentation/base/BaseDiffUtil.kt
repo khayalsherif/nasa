@@ -1,4 +1,4 @@
-package az.khayalsharifli.presentation.tools
+package az.khayalsharifli.presentation.base
 
 import androidx.recyclerview.widget.DiffUtil
 

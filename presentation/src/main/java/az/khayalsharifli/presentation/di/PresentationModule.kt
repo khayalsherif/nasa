@@ -9,7 +9,7 @@ import org.koin.dsl.module
 val presentationModule = module {
 
     viewModel {
-        SplashViewModel()
+        SplashViewModel(splashUseCase = get())
     }
 
     viewModel {
@@ -17,6 +17,9 @@ val presentationModule = module {
     }
 
     viewModel {
-        HomeViewModel(epicUseCase = get())
+        HomeViewModel(
+            epicObserveUseCase = get(),
+            epicSyncUseCase = get()
+        )
     }
 }

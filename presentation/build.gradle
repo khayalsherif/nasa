@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id "androidx.navigation.safeargs.kotlin"
 }
 
 android {
@@ -45,6 +46,8 @@ dependencies {
 
     //Constraint
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    //Navigation
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.2'
 
@@ -53,5 +56,11 @@ dependencies {
 
     //Koin
     implementation "io.insert-koin:koin-android:${koinVersion}"
+
+    //Coil
+    implementation("io.coil-kt:coil:2.2.2")
+
+    //Logger
+    implementation 'com.jakewharton.timber:timber:4.7.1'
 
 }

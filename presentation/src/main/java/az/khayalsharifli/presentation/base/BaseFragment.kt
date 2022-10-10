@@ -7,11 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 
-abstract class BaseFragment<B : ViewBinding, V : BaseViewModel> : Fragment() {
+abstract class BaseFragment<Binding : ViewBinding, ViewModel : BaseViewModel> : Fragment() {
 
-    protected abstract val bindingCallBack: (LayoutInflater, ViewGroup?, Boolean) -> B
+    protected abstract val bindingCallBack: (LayoutInflater, ViewGroup?, Boolean) -> Binding
 
-    private lateinit var binding: B
+    private lateinit var binding: Binding
+
+    //protected abstract val vmClazz: KClass<ViewModel>
+    //val viewModel: ViewModel by lazy { getViewModel(vmClazz) { parametersOf(arguments) } }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,6 +31,11 @@ abstract class BaseFragment<B : ViewBinding, V : BaseViewModel> : Fragment() {
 
     }
 
-    protected open val bindViews: B.() -> Unit = {}
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+    }
+
+    protected open val bindViews: Binding.() -> Unit = {}
 
 }

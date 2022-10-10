@@ -9,4 +9,15 @@
         <attr name="error_color" format="color" />
         <attr name="success_color" format="color" />
     </declare-styleable>
+
+
+    <style name="TextStyle">
+        <item name="android:textColor">?attr/text_color</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextBoldStyle">
+        <item name="android:textColor">?attr/text_color</item>
+        <item name="android:textSize">14sp</item>
+    </style>
 </resources>

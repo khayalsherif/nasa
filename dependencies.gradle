@@ -6,4 +6,6 @@ ext {
     koinVersion = "3.2.0"
     coroutineVersion = "1.6.0"
     roomVersion = '2.4.3'
+    navigationVersion = "2.5.2"
+    kotlinVersion = "1.6.10"
 }

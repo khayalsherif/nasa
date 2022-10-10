@@ -14,6 +14,5 @@ data class Epic(
         val lat: Double,
         val lon: Double
     )
-
 }
 
