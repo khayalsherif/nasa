@@ -1,12 +1,10 @@
 package az.khayalsharifli.presentation.flow.content.home
 
 import androidx.lifecycle.viewModelScope
-import az.khayalsharifli.domain.base.Block
 import az.khayalsharifli.domain.model.Epic
 import az.khayalsharifli.domain.usecase.epic.EpicObserveUseCase
 import az.khayalsharifli.domain.usecase.epic.EpicSyncUseCase
 import az.khayalsharifli.presentation.base.BaseViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 

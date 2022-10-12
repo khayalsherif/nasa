@@ -2,15 +2,14 @@ package az.khayalsharifli.presentation.flow.content.detail
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import az.khayalsharifli.presentation.R
 import az.khayalsharifli.presentation.base.BaseFragment
 import az.khayalsharifli.presentation.databinding.FragmentDetailBinding
-import coil.ImageLoader
 import coil.imageLoader
-import coil.load
+import coil.request.ImageRequest
 import kotlin.reflect.KClass
 
 class DetailFragment : BaseFragment<FragmentDetailBinding, DetailViewModel>() {
@@ -25,17 +24,31 @@ class DetailFragment : BaseFragment<FragmentDetailBinding, DetailViewModel>() {
 
     override val bindViews: FragmentDetailBinding.() -> Unit = {
         toolbar.setNavigationOnClickListener { findNavController().popBackStack() }
-        setImage(args.imageUrl!!, args.date!!, imageView = ivNasa)
-    }
 
-    private fun setImage(imageUrl: String, date: String, imageView: ImageView) {
         val fullUrl =
-            "https://api.nasa.gov/EPIC/archive/natural/${date}/png/${imageUrl}.png?api_key=wtDl5n1USYfB06iMdKnbcJWTn93dOL129LkFaWiS"
+            "https://api.nasa.gov/EPIC/archive/natural/${args.date!!}/png/${args.imageUrl!!}.png?api_key=wtDl5n1USYfB06iMdKnbcJWTn93dOL129LkFaWiS"
 
-        imageView.load(fullUrl) {
-            placeholder(R.drawable.ic_nasa)
-        }
+        val imageLoader = requireContext().imageLoader
+        val request = ImageRequest.Builder(requireContext())
+            .data(fullUrl)
+            .target {
+                ivNasa.setImageDrawable(it)
+            }
+            .listener(
+                onStart = {
+                    layoutLoading.progressBar.isVisible = true
+                },
+                onSuccess = { request, metadata ->
+                    layoutLoading.progressBar.isGone = true
+                },
+                onError = { request, errorResult ->
+                    layoutLoading.progressBar.isGone = true
+                }
+            ).build()
+
+        imageLoader.enqueue(request)
 
     }
+
 
 }
