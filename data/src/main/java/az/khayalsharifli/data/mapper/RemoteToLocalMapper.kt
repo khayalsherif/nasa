@@ -3,8 +3,10 @@ package az.khayalsharifli.data.mapper
 import az.khayalsharifli.data.local.epic.model.EpicLocalDto
 import az.khayalsharifli.data.remote.model.EpicRemoteDto
 
+typealias RemoteCoordinates = EpicRemoteDto.CentroidCoordinates
+typealias LocalCoordinates = EpicLocalDto.CentroidCoordinates
 
-fun EpicRemoteDto.CentroidCoordinates.toLocal(): EpicLocalDto.CentroidCoordinates =
+fun RemoteCoordinates.toLocal(): LocalCoordinates =
     EpicLocalDto.CentroidCoordinates(lat = lat, lon = lon)
 
 fun EpicRemoteDto.toLocal(): EpicLocalDto =

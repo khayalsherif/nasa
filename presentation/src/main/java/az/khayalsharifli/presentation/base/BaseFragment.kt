@@ -6,6 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.core.parameter.parametersOf
+import kotlin.reflect.KClass
 
 abstract class BaseFragment<Binding : ViewBinding, ViewModel : BaseViewModel> : Fragment() {
 
@@ -13,8 +16,8 @@ abstract class BaseFragment<Binding : ViewBinding, ViewModel : BaseViewModel> : 
 
     private lateinit var binding: Binding
 
-    //protected abstract val vmClazz: KClass<ViewModel>
-    //val viewModel: ViewModel by lazy { getViewModel(vmClazz) { parametersOf(arguments) } }
+    protected abstract val kClass: KClass<ViewModel>
+    val viewModel: ViewModel by lazy { getViewModel(kClass) { parametersOf(arguments) } }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,6 +37,15 @@ abstract class BaseFragment<Binding : ViewBinding, ViewModel : BaseViewModel> : 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        viewModel.commonEffect.observe(viewLifecycleOwner) {
+            when (it) {
+                is NoInternet -> println("No Internet")
+                is BackEndError -> {}
+                is UnknownError -> {}
+                is MessageError -> {}
+                else -> {}
+            }
+        }
     }
 
     protected open val bindViews: Binding.() -> Unit = {}

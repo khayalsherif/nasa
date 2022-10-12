@@ -11,6 +11,7 @@ import az.khayalsharifli.presentation.databinding.FragmentDetailBinding
 import coil.ImageLoader
 import coil.imageLoader
 import coil.load
+import kotlin.reflect.KClass
 
 class DetailFragment : BaseFragment<FragmentDetailBinding, DetailViewModel>() {
 
@@ -18,6 +19,9 @@ class DetailFragment : BaseFragment<FragmentDetailBinding, DetailViewModel>() {
 
     override val bindingCallBack: (LayoutInflater, ViewGroup?, Boolean) -> FragmentDetailBinding
         get() = FragmentDetailBinding::inflate
+
+    override val kClass: KClass<DetailViewModel>
+        get() = DetailViewModel::class
 
     override val bindViews: FragmentDetailBinding.() -> Unit = {
         toolbar.setNavigationOnClickListener { findNavController().popBackStack() }

@@ -5,11 +5,14 @@ package az.khayalsharifli.presentation.tools
 import android.content.Context
 import android.location.Geocoder
 import android.location.Location
+import androidx.annotation.AnyThread
 import az.khayalsharifli.presentation.R
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.util.*
 
 object Util {
-    fun getAddressFromLocation(location: Location, context: Context): String {
+     fun getAddressFromLocation(location: Location, context: Context): String {
         val geocoder = Geocoder(context, Locale.getDefault())
         val address =
             geocoder.getFromLocation(location.latitude, location.longitude, 1) ?: emptyList()

@@ -13,14 +13,16 @@ import az.khayalsharifli.presentation.flow.adapters.HomeAdapter
 import az.khayalsharifli.presentation.tools.ClickListener
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import kotlin.reflect.KClass
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(), ClickListener {
-
-    private val viewModel by viewModel<HomeViewModel>()
 
     private val homeAdapter by lazy { HomeAdapter(this) }
 
     private lateinit var epicList: List<Epic>
+
+    override val kClass: KClass<HomeViewModel>
+        get() = HomeViewModel::class
 
     override val bindingCallBack: (LayoutInflater, ViewGroup?, Boolean) -> FragmentHomeBinding
         get() = FragmentHomeBinding::inflate
