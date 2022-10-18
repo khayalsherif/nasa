@@ -38,10 +38,10 @@ class DetailFragment : BaseFragment<FragmentDetailBinding, DetailViewModel>() {
                 onStart = {
                     layoutLoading.progressBar.isVisible = true
                 },
-                onSuccess = { request, metadata ->
+                onSuccess = { _, _ ->
                     layoutLoading.progressBar.isGone = true
                 },
-                onError = { request, errorResult ->
+                onError = { _, _ ->
                     layoutLoading.progressBar.isGone = true
                 }
             ).build()

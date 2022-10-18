@@ -3,16 +3,21 @@ package az.khayalsharifli.presentation.base
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.NavDirections
+import androidx.navigation.Navigator
 import az.khayalsharifli.domain.base.BaseSyncUseCase
 import az.khayalsharifli.domain.base.Block
 import az.khayalsharifli.domain.exceptions.NetworkError
 import az.khayalsharifli.domain.exceptions.ServerError
 import az.khayalsharifli.presentation.R
+import az.khayalsharifli.presentation.tools.NavigationCommand
 import az.khayalsharifli.presentation.tools.SingleLiveEvent
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
 abstract class BaseViewModel : ViewModel() {
+
+    val navigationCommands = SingleLiveEvent<NavigationCommand>()
 
     private val _commonEffect = SingleLiveEvent<BaseEffect>()
     val commonEffect: LiveData<BaseEffect>
@@ -46,6 +51,13 @@ abstract class BaseViewModel : ViewModel() {
         }
     }
 
+    fun navigate(directions: NavDirections, extras: Navigator.Extras? = null) {
+        navigationCommands.postValue(NavigationCommand.To(directions, extras))
+    }
+
+    fun navigate(command: NavigationCommand) {
+        navigationCommands.postValue(command)
+    }
 
     private fun handleError(t: Throwable) {
         Timber.e(t)

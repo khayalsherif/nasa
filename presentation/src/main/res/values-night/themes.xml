@@ -20,5 +20,6 @@
 
         <!--Custom colors-->
         <item name="text_color">@color/white</item>
+        <item name="background_color">@color/black</item>
     </style>
 </resources>

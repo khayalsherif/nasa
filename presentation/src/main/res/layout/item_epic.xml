@@ -10,35 +10,35 @@
         style="@style/TextStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="24dp"
-        tools:text="This image was taken by NASA's EPIC camera onboard the NOAA DSCOVR spacecraft"
+        android:layout_marginHorizontal="@dimen/value_24"
+        android:layout_marginStart="@dimen/value_24"
+        android:layout_marginTop="@dimen/value_32"
+        android:layout_marginEnd="@dimen/value_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="This image was taken by NASA's EPIC camera onboard the NOAA DSCOVR spacecraft" />
 
     <TextView
         android:id="@+id/tv_date"
         style="@style/TextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        tools:text="11/09/2003"
+        android:layout_marginStart="@dimen/value_16"
         app:layout_constraintBottom_toBottomOf="@+id/tv_location"
         app:layout_constraintStart_toEndOf="@+id/tv_location"
-        app:layout_constraintTop_toTopOf="@+id/tv_location" />
+        app:layout_constraintTop_toTopOf="@+id/tv_location"
+        tools:text="11/09/2003" />
 
     <TextView
         android:id="@+id/tv_location"
         style="@style/TextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginStart="@dimen/value_24"
+        android:layout_marginTop="@dimen/value_16"
+        android:layout_marginBottom="@dimen/value_32"
         android:maxLength="10"
         android:text="America"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -50,8 +50,8 @@
         style="@style/TextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:text="Open Image"
+        android:layout_marginEnd="@dimen/value_24"
+        android:text="@string/open_image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_caption" />
@@ -59,7 +59,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:layout_marginHorizontal="24dp"
+        android:layout_marginHorizontal="@dimen/value_24"
         android:background="@color/black"
         app:layout_constraintBottom_toBottomOf="parent" />
 

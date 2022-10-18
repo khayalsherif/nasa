@@ -3,8 +3,8 @@ package az.khayalsharifli.presentation.flow.content.home
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import az.khayalsharifli.domain.model.Epic
 import az.khayalsharifli.presentation.base.BaseFragment
@@ -12,7 +12,6 @@ import az.khayalsharifli.presentation.databinding.FragmentHomeBinding
 import az.khayalsharifli.presentation.flow.adapters.HomeAdapter
 import az.khayalsharifli.presentation.tools.ClickListener
 import kotlinx.coroutines.launch
-import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.reflect.KClass
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(), ClickListener {
@@ -28,6 +27,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(), ClickLi
         get() = FragmentHomeBinding::inflate
 
     override val bindViews: FragmentHomeBinding.() -> Unit = {
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner){
+            requireActivity().finish()
+        }
+
         rcHome.adapter = homeAdapter
         rcHome.layoutManager = LinearLayoutManager(requireContext())
 
@@ -45,7 +48,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(), ClickLi
             item.image,
             getFormattedDate(item.date)
         )
-        findNavController().navigate(direction)
+        viewModel.navigate(direction)
     }
 
 
