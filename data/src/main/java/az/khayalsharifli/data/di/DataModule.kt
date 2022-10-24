@@ -6,7 +6,9 @@ import az.khayalsharifli.data.errors.RemoteErrorMapper
 import az.khayalsharifli.data.local.epic.EpicDataBase
 import az.khayalsharifli.data.local.epic.EpicLocalDataSource
 import az.khayalsharifli.data.local.epic.EpicLocalDataSourceImpl
-import az.khayalsharifli.data.remote.EpicApi
+import az.khayalsharifli.data.mapper.Mapper
+import az.khayalsharifli.data.mapper.epic.EpicMapper
+import az.khayalsharifli.data.remote.EpicService
 import az.khayalsharifli.data.repository.EpicRepositoryImpl
 import az.khayalsharifli.domain.di.ERROR_MAPPER_NETWORK
 import az.khayalsharifli.domain.di.IO_CONTEXT
@@ -50,14 +52,18 @@ val dataModule = module {
             .build()
     }
 
-    factory<EpicApi> { get<Retrofit>().create(EpicApi::class.java) }
+    factory<EpicService> { get<Retrofit>().create(EpicService::class.java) }
 
     factory<EpicRepository> {
         EpicRepositoryImpl(
-            epicApi = get(), epicLocalDataSource = get()
+            mapper = get(),
+            epicService = get(), epicLocalDataSource = get()
         )
     }
 
+    factory<EpicMapper> {
+        EpicMapper()
+    }
     //////////////////////////////////  LOCAL   ////////////////////////////////////////////////////
 
     single { get<EpicDataBase>().epicDao() }

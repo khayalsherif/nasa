@@ -9,6 +9,13 @@ dependencies {
     //Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutineVersion}"
 
-    //Test
-    //testImplementation "junit:junit:${junitVersion}"
+    // Test Framework
+    testImplementation "junit:junit:${junitVersion}"
+    testImplementation "androidx.test.ext:junit:${junitVersion}"
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+    testImplementation "com.google.truth:truth:${truthVersion}"
+    testImplementation "org.mockito:mockito-core:${mockitoVersion}"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
+    testImplementation "app.cash.turbine:turbine:${turbineVersion}"
+
 }
