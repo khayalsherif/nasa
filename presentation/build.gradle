@@ -51,9 +51,6 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.2'
 
-    //Test
-    testImplementation "junit:junit:${junitVersion}"
-
     //Koin
     implementation "io.insert-koin:koin-android:${koinVersion}"
     implementation "io.insert-koin:koin-androidx-viewmodel:${koinVersion}"
@@ -63,5 +60,16 @@ dependencies {
 
     //Logger
     implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    //Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutineVersion}"
+
+    //Test
+    testImplementation "junit:junit:${junitVersion}"
+    testImplementation "androidx.test.ext:junit:${junitVersion}"
+    testImplementation 'org.mockito:mockito-core:3.10.0'
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
+    testImplementation "app.cash.turbine:turbine:${turbineVersion}"
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
 
 }

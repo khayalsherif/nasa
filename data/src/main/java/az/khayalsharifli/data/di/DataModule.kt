@@ -6,7 +6,6 @@ import az.khayalsharifli.data.errors.RemoteErrorMapper
 import az.khayalsharifli.data.local.epic.EpicDataBase
 import az.khayalsharifli.data.local.epic.EpicLocalDataSource
 import az.khayalsharifli.data.local.epic.EpicLocalDataSourceImpl
-import az.khayalsharifli.data.mapper.Mapper
 import az.khayalsharifli.data.mapper.epic.EpicMapper
 import az.khayalsharifli.data.remote.EpicService
 import az.khayalsharifli.data.repository.EpicRepositoryImpl
@@ -61,7 +60,7 @@ val dataModule = module {
         )
     }
 
-    factory<EpicMapper> {
+    factory {
         EpicMapper()
     }
     //////////////////////////////////  LOCAL   ////////////////////////////////////////////////////

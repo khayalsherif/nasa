@@ -18,12 +18,14 @@ class HomeViewModel(
         get() = _epicResponse.asStateFlow()
 
     init {
-        viewModelScope.launch {
-            epicObserveUseCase.execute(Unit).collect {
-                _epicResponse.emit(it)
-            }
-        }
+        getEpicData()
         epicSyncUseCase.launch(Unit)
+    }
+
+     fun getEpicData() = viewModelScope.launch {
+        epicObserveUseCase.execute(Unit).collect {
+            _epicResponse.emit(it)
+        }
     }
 
 }
