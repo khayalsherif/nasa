@@ -44,9 +44,9 @@ dependencies {
     implementation project(":domain")
     implementation project(":presentation")
 
-    //DI
+    // DI
     implementation "io.insert-koin:koin-android:${koinVersion}"
 
-    //Test
+    // Test
     testImplementation "junit:junit:${junitVersion}"
 }

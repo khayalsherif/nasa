@@ -5,27 +5,40 @@ import az.khayalsharifli.domain.model.Epic
 
 object EpicFactory {
 
-    fun generateDummyEpicList(size: Int): List<Epic> {
-        val movieList = mutableListOf<Epic>()
+    fun generateDomainEpicList(size: Int): List<Epic> {
+        val arrayList = ArrayList<Epic>()
         repeat(size) {
-            movieList.add(generateEpic())
+            val coordinates = Epic.CentroidCoordinates(
+                lat = DataFactory.getRandomDouble(),
+                lon = DataFactory.getRandomDouble()
+            )
+            val epic = Epic(
+                caption = DataFactory.getRandomString(),
+                centroid_coordinates = coordinates,
+                date = DataFactory.getRandomString(),
+                identifier = DataFactory.getRandomString(),
+                image = DataFactory.getRandomString(),
+                version = DataFactory.getRandomString()
+            )
+            arrayList.add(epic)
         }
-        return movieList
+
+        return arrayList
     }
 
-
-    private fun generateEpicCoordinate() =
-        Epic.CentroidCoordinates(
-            DataFactory.getRandomDouble(),
-            DataFactory.getRandomDouble()
+    fun generateDomainEpic(): Epic {
+        val coordinates = Epic.CentroidCoordinates(
+            lat = DataFactory.getRandomDouble(),
+            lon = DataFactory.getRandomDouble()
         )
+        return Epic(
+            caption = DataFactory.getRandomString(),
+            centroid_coordinates = coordinates,
+            date = DataFactory.getRandomString(),
+            identifier = DataFactory.getRandomString(),
+            image = DataFactory.getRandomString(),
+            version = DataFactory.getRandomString()
+        )
+    }
 
-    private fun generateEpic() = Epic(
-        DataFactory.getRandomString(),
-        generateEpicCoordinate(),
-        DataFactory.getRandomString(),
-        DataFactory.getRandomString(),
-        DataFactory.getRandomString(),
-        DataFactory.getRandomString()
-    )
 }

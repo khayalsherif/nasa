@@ -37,39 +37,42 @@ dependencies {
 
     implementation project(":domain")
 
-    //Core
+    // Core
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
 
-    //Material
+    // Material
     implementation 'com.google.android.material:material:1.6.1'
 
-    //Constraint
+    // Constraint
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
-    //Navigation
+    // Navigation
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.2'
 
-    //Koin
+    // Koin
     implementation "io.insert-koin:koin-android:${koinVersion}"
     implementation "io.insert-koin:koin-androidx-viewmodel:${koinVersion}"
 
-    //Coil
+    // Coil
     implementation("io.coil-kt:coil:2.2.2")
 
-    //Logger
+    // Logger
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
-    //Coroutines
+    // Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutineVersion}"
 
-    //Test
+    // Local Test
+    implementation "androidx.test:core:1.4.0"
     testImplementation "junit:junit:${junitVersion}"
-    testImplementation "androidx.test.ext:junit:${junitVersion}"
-    testImplementation 'org.mockito:mockito-core:3.10.0'
-    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
-    testImplementation "app.cash.turbine:turbine:${turbineVersion}"
+    testImplementation "org.hamcrest:hamcrest-all:${hamcrestVersion}"
     testImplementation "androidx.arch.core:core-testing:2.1.0"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:${coroutinesTest}"
+    testImplementation "com.google.truth:truth:${truthVersion}"
+    testImplementation "org.mockito:mockito-core:${mockitoVersion}"
+    testImplementation "org.mockito:mockito-inline:${mockitoVersion}"
+    testImplementation "app.cash.turbine:turbine:${turbineVersion}"
 
 }

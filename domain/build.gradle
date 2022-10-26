@@ -3,19 +3,20 @@ plugins {
 }
 
 dependencies {
-    //DI
+    // DI
     implementation "io.insert-koin:koin-core:$koinVersion"
 
-    //Coroutines
+    // Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutineVersion}"
 
-    // Test Framework
+    // Local Unit Tests
+    implementation "androidx.test:core:1.4.0"
     testImplementation "junit:junit:${junitVersion}"
-    testImplementation "androidx.test.ext:junit:${junitVersion}"
+    testImplementation "org.hamcrest:hamcrest-all:${hamcrestVersion}"
     testImplementation "androidx.arch.core:core-testing:2.1.0"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:${coroutinesTest}"
     testImplementation "com.google.truth:truth:${truthVersion}"
     testImplementation "org.mockito:mockito-core:${mockitoVersion}"
-    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
+    testImplementation "org.mockito:mockito-inline:${mockitoVersion}"
     testImplementation "app.cash.turbine:turbine:${turbineVersion}"
-
 }
