@@ -39,8 +39,8 @@
         android:layout_marginStart="@dimen/value_24"
         android:layout_marginTop="@dimen/value_16"
         android:layout_marginBottom="@dimen/value_32"
-        android:maxLength="10"
-        android:text="America"
+        android:maxLength="15"
+        android:text="United States"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_caption" />

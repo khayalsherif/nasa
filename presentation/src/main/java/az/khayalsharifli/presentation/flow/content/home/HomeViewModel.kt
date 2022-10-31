@@ -22,7 +22,7 @@ class HomeViewModel(
         epicSyncUseCase.launch(Unit)
     }
 
-     fun getEpicData() = viewModelScope.launch {
+     private fun getEpicData() = viewModelScope.launch {
         epicObserveUseCase.execute(Unit).collect {
             _epicResponse.emit(it)
         }

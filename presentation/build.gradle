@@ -66,6 +66,7 @@ dependencies {
 
     // Local Test
     implementation "androidx.test:core:1.4.0"
+    implementation 'androidx.test.ext:junit-ktx:1.1.3'
     testImplementation "junit:junit:${junitVersion}"
     testImplementation "org.hamcrest:hamcrest-all:${hamcrestVersion}"
     testImplementation "androidx.arch.core:core-testing:2.1.0"
@@ -75,4 +76,14 @@ dependencies {
     testImplementation "org.mockito:mockito-inline:${mockitoVersion}"
     testImplementation "app.cash.turbine:turbine:${turbineVersion}"
 
+    // Instrumented Unit Test
+    androidTestImplementation "junit:junit:${junitVersion}"
+    androidTestImplementation "org.hamcrest:hamcrest-all:${hamcrestVersion}"
+    androidTestImplementation "androidx.arch.core:core-testing:${coreTestingVersion}"
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:${coroutinesTest}"
+    androidTestImplementation "com.google.truth:truth:${truthVersion}"
+    androidTestImplementation "org.mockito:mockito-core:${mockitoVersion}"
+    androidTestImplementation "org.mockito:mockito-inline:${mockitoVersion}"
+    androidTestImplementation "app.cash.turbine:turbine:${turbineVersion}"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:${espressoVersion}"
 }
