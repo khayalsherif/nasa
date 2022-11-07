@@ -6,6 +6,7 @@ import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import az.khayalsharifli.presentation.BuildConfig
 import az.khayalsharifli.presentation.base.BaseFragment
 import az.khayalsharifli.presentation.databinding.FragmentDetailBinding
 import coil.imageLoader
@@ -26,7 +27,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding, DetailViewModel>() {
         toolbar.setNavigationOnClickListener { findNavController().popBackStack() }
 
         val fullUrl =
-            "https://api.nasa.gov/EPIC/archive/natural/${args.date!!}/png/${args.imageUrl!!}.png?api_key=wtDl5n1USYfB06iMdKnbcJWTn93dOL129LkFaWiS"
+            "https://api.nasa.gov/EPIC/archive/natural/${args.date!!}/png/${args.imageUrl!!}.png?api_key=${BuildConfig.NASA_API_KEY}"
 
         val imageLoader = requireContext().imageLoader
         val request = ImageRequest.Builder(requireContext())
