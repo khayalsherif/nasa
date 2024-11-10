@@ -50,7 +50,6 @@ class BaseBottomSheetDialog : BottomSheetDialogFragment() {
         binding.button.setOnClickListener {
             action(this)
         }
-
         isCancelable = canCancel
     }
 
